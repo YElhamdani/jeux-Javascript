@@ -1,0 +1,233 @@
+* {
+  box-sizing: border-box;
+}
+
+@keyframes backgroundScroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -99999999px 0;
+  }
+}
+
+@keyframes skyBar {
+  0% {
+    width: 100px;
+  }
+  99% {
+    width: 0px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+@keyframes submarineCollision {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.wrap {
+  width: 1280px;
+  height: 800px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+
+.submarine, .plane, .life, .drop, .obstacle--barrel, .obstacle--waste, .obstacle--shark {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.submarine {
+  height: 72px;
+  width: 120px;
+  background-image: url("../../src/assets/sprites/submarine.gif");
+}
+
+.submarine.collision {
+  animation: submarineCollision 0.7s linear;
+}
+
+.plane {
+  height: 70px;
+  background-image: url("../../src/assets/sprites/plane.gif");
+}
+
+.life {
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  top: 10px;
+  left: 10px;
+  background-image: url("../../src/assets/sprites/submarine.png");
+  z-index: 1;
+}
+
+.life__count {
+  font-family: "upheaval", monospace;
+  position: absolute;
+  font-size: 40px;
+  top: 8px;
+  left: 75px;
+  color: white;
+  z-index: 1;
+}
+
+.score {
+  font-family: "upheaval", monospace;
+  color: white;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  font-size: 40px;
+}
+
+.score--waste {
+  right: 47px;
+  top: 45px;
+}
+
+.score__icon {
+  position: absolute;
+  width: 40px;
+  height: 30px;
+  right: 0;
+  top: 50px;
+  background-image: url("../../src/assets/sprites/waste-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.sky {
+  width: 1280px;
+  height: 312px;
+  position: absolute;
+  overflow: hidden;
+  background-image: url("../../src/assets/background/sky.png");
+  background-size: cover;
+  animation: backgroundScroll 1999999s linear infinite;
+}
+
+.sky__bar {
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  right: 370px;
+  top: 75px;
+  background: black;
+  visibility: hidden;
+}
+
+.sky__bar.isTriggered {
+  visibility: initial;
+  animation: skyBar 1.5s linear;
+}
+
+.sky__box {
+  width: 500px;
+  height: 70px;
+  position: absolute;
+  right: 0;
+  top: 100px;
+  overflow: hidden;
+}
+
+.drop {
+  position: absolute;
+  top: 180px;
+  left: 800px;
+  width: 60px;
+  height: 60px;
+  z-index: 2;
+  background-image: url("../../src/assets/sprites/brick.png");
+}
+
+.drop--medium {
+  width: 60px;
+  height: 60px;
+  background-image: url("../../src/assets/sprites/bomb.png");
+}
+
+.drop--large {
+  width: 90px;
+  height: 90px;
+  background-image: url("../../src/assets/sprites/barrel-tnt.png");
+}
+
+.water {
+  width: 1280px;
+  height: 480px;
+  position: absolute;
+  bottom: -3px;
+  background-image: url("../../src/assets/background/ocean.png");
+  z-index: 1;
+  animation: backgroundScroll 799999s linear infinite;
+  overflow: hidden;
+}
+
+.waves {
+  position: absolute;
+  width: 1280px;
+  height: 80px;
+  bottom: 456px;
+  z-index: 2;
+  background-image: url("../../src/assets/background/waves.png");
+  animation: backgroundScroll 899999s linear infinite;
+
+  //regler toutes les répétitions de background css et z index et position absolute et contain
+}
+
+.obstacle {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+}
+
+.obstacle--can {
+  background-image: url("../../src/assets/sprites/can.png");
+}
+
+.obstacle--bag {
+  background-image: url("../../src/assets/sprites/bag.png");
+}
+
+.obstacle--rock {
+  background-image: url("../../src/assets/sprites/rock.png");
+  background-size: contain;
+}
+
+.obstacle--barrel {
+  width: 90px;
+  height: 120px;
+  background-image: url("../../src/assets/sprites/barrel.png");
+}
+
+.obstacle--shark {
+  position: absolute;
+  width: 160px;
+  height: 100px;
+  background-image: url("../../src/assets/sprites/shark.gif");
+}
+
+.background {
+  position: absolute;
+  bottom: 0;
+  width: 1280px;
+  height: 160px;
+  z-index: 1;
+}

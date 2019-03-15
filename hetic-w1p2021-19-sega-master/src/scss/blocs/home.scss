@@ -1,0 +1,61 @@
+.home__wrap {
+  width: 1280px;
+  height: 800px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.home__background,
+.home__logo,
+.home__play,
+.home__instructions {
+  position: absolute;
+}
+
+.home__background {
+  width: 1280px;
+  height: 800px;
+  background-image: url("../../src/assets/background/ocean-full.png");
+  -webkit-animation: backgroundScroll 5999999s linear infinite;
+  animation: backgroundScroll 5999999s linear infinite;
+}
+
+.home__logo {
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 240px;
+  width: 700px;
+  height: 500px;
+  background-image: url("../../src/assets/sprites/logo.png");
+  background-repeat: no-repeat;
+}
+
+.home__background,
+.home__logo {
+  background-size: contain;
+}
+
+.home__play,
+.home__instructions {
+  font-family: "upheaval", monospace;
+  color: white;
+  width: 1280px;
+  text-align: center;
+}
+
+.home__play {
+  font-size: 80px;
+  top: 440px;
+}
+
+.home__play:hover, .home__instructions:hover {
+  cursor: pointer;
+}
+
+.home__instructions {
+  font-size: 45px;
+  top: 560px;
+}
